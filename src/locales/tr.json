@@ -1,0 +1,147 @@
+{
+    "nav": {
+        "services": "Hizmetler",
+        "process": "Süreç",
+        "whyUs": "Neden Biz?",
+        "reviews": "Yorumlar",
+        "freeDiscovery": "Ücretsiz Keşif",
+        "references": "Referanslar"
+    },
+    "hero": {
+        "badge": "Ankara'nın 1 Numaralı Güvenlik Çözümü",
+        "titleStart": "Güvenliğiniz",
+        "titleEnd": "Bizim İşimiz",
+        "description": "Ankaragüvenlik Kamera ile eviniz ve iş yeriniz 7/24 güvende. Yüksek çözünürlüklü görüntüleme sistemleri, akıllı görüntülü diyafonlar ve teknoloji entegrasyonuyla Başkent'te huzuru yeniden tanımlıyoruz.",
+        "ctaPrimary": "Ücretsiz Keşif İste",
+        "ctaSecondary": "Referanslarımızı Gör",
+        "licensed": "Lisanslı Hizmet",
+        "warranty": "2 Yıl Garanti",
+        "fastInstall": "Hızlı Kurulum"
+    },
+    "card": {
+        "resolution": "Çözünürlük",
+        "resolutionValue": "4K Ultra HD",
+        "systemStatus": "Sistem Durumu",
+        "systemStatusValue": "Aktif & Kayıtta"
+    },
+    "services": {
+        "title": "Hizmetlerimiz",
+        "heading": "Kapsamlı Güvenlik Çözümleri",
+        "description": "Kamera sistemlerinden görüntülü diyafonlara, mülkünüzün güvenliği için uçtan uca çözümler sunuyoruz.",
+        "cctv": {
+            "title": "CCTV Kurulumu ve Ve Yapılandırması",
+            "desc": "Gece görüşlü 4K HD kameralar, yapay zeka destekli hareket algılama ve uzaktan izleme sistemlerinin profesyonel kurulumu. Kablo karmaşası olmadan, estetik montaj."
+        },
+        "intercom": {
+            "title": "Akıllı Görüntülü Diyafon",
+            "desc": "Kapınızdaki misafirleri HD kalitesinde görün, onlarla konuşun ve kapıyı tek tuşla açın. Güvenlik, kapınızda başlar."
+        },
+        "smart": {
+            "title": "Akıllı Ev Entegrasyonu",
+            "desc": "Güvenlik sisteminizi akıllı telefonunuzdan yönetin. Alexa ve Google Home ile tam uyumlu, otomatik senaryolar oluşturun."
+        },
+        "maintenance": {
+            "title": "Periyodik Sistem Bakımı",
+            "desc": "Yıllık bakım anlaşmalarıyla sisteminizin %100 performansla çalışmasını sağlıyoruz. Yazılım güncellemeleri ve donanım kontrolleri dahildir."
+        },
+        "monitoring": {
+            "title": "7/24 Alarm ve İzleme",
+            "desc": "Profesyonel izleme merkezimizle mülkünüzü 7 gün 24 saat gözetim altında tutuyoruz. Anında polis, itfaiye ve ambulans yönlendirmesi."
+        },
+        "cta": {
+            "title": "Güvenliğiniz İçin Profesyonel Dokunuş",
+            "desc": "Eviniz veya iş yeriniz için en doğru güvenlik çözümünü belirlemek üzere ücretsiz keşif ekibimizi yönlendirelim.",
+            "button": "Hemen Randevu Oluştur"
+        }
+    },
+    "footer": {
+        "rights": "© 2024 Ankaragüvenlik Kamera. Tüm hakları saklıdır.",
+        "privacy": "Gizlilik Politikası",
+        "terms": "Kullanım Şartları",
+        "links": "Hızlı Bağlantılar",
+        "areas": "Hizmet Bölgelerimiz",
+        "contact": "İletişim",
+        "desc": "Ankara'nın güvenilir kamera ve güvenlik sistemleri çözüm ortağı. Evinizi ve işinizi korumak için en son teknolojiyi kullanıyoruz.",
+        "call": "Hemen Arayın",
+        "email": "E-posta Destek"
+    },
+    "process": {
+        "title": "Nasıl Çalışıyoruz?",
+        "heading": "Adım Adım Güvenlik Sürecimiz",
+        "step1": {
+            "title": "Ücretsiz Keşif ve Risk Analizi",
+            "desc": "Uzmanlarımız yerinize gelerek kör noktaları belirler, çevresel riskleri analiz eder ve bütçenize en uygun projeyi çizer."
+        },
+        "step2": {
+            "title": "Temiz ve Hızlı Kurulum",
+            "desc": "Evinizin veya iş yerinizin dekorasyonuna zarar vermeden, kablo kanalları kullanarak estetik montaj yapıyoruz. Genellikle aynı gün teslim."
+        },
+        "step3": {
+            "title": "Eğitim ve 7/24 Destek",
+            "desc": "Sistemi nasıl kullanacağınızı detaylıca öğretiyoruz. Kurulum sonrası her an ulaşabileceğiniz teknik destek hattımızla yanınızdayız."
+        }
+    },
+    "whyUs": {
+        "badge": "Farkımız",
+        "heading": "Neden Ankaragüvenlik Kamera?",
+        "desc": "Biz sadece bir teknoloji firması değiliz; ailenizin ve işinizin güvenliğini emanet ettiğiniz çözüm ortağınızız. Binlerce mutlu müşteri, yüzlerce başarılı proje ve 15 yıllık tecrübemizle Ankara'nın lideriyiz.",
+        "feat1": {
+            "title": "Ankara Yerel Uzmanlık",
+            "desc": "Şehrin tüm ilçelerine hakimiz, yerel ihtiyaçları biliyoruz."
+        },
+        "feat2": {
+            "title": "Aynı Gün Servis Garantisi",
+            "desc": "Acil durumlarınızda asla bekletmiyoruz, anında müdahale."
+        },
+        "feat3": {
+            "title": "Gelişmiş Mobil Deneyim",
+            "desc": "Dünyanın neresinde olursanız olun, kontrol avucunuzun içinde."
+        },
+        "feat4": {
+            "title": "2 Yıl Birebir Değişim",
+            "desc": "Arızalı ürünlerde tamir beklemek yok, yenisiyle değişim."
+        },
+        "img1": "Yeni Nesil Teknolojiler",
+        "img2": "Kurumsal Referanslarımız"
+    },
+    "reviews": {
+        "heading": "Ankaralı Komşularınızın Güveni",
+        "r1": {
+            "quote": "Çankaya'daki dükkanımız için en iyi yatırım. 4K kameraların netliği harika ve uygulamanın kullanımı çok kolay.",
+            "role": "İşletme Sahibi - Çankaya"
+        },
+        "r2": {
+            "quote": "Kurulum ekibi profesyonel, temiz ve hızlıydı. Her şeyi açıkça açıkladılar. Teşekkürler Ankaragüvenlik Kamera.",
+            "role": "Ev Sahibi - Batıkent"
+        },
+        "r3": {
+            "quote": "Evimin 7/24 izlendiğini bilmek beni çok daha güvende hissettiriyor. Keçiören'de kesinlikle tavsiye ederim.",
+            "role": "Ev Sahibi - Keçiören"
+        }
+    },
+    "contact": {
+        "heading": "Ücretsiz Keşifinizi Planlayın",
+        "desc": "Formu doldurun, Ankara'daki güvenlik uzmanımız 30 dakika içinde sizi arasın.",
+        "name": "Ad",
+        "surname": "Soyad",
+        "phone": "İletişim Numarası",
+        "property": "Mülk Tipi",
+        "submit": "Talebi Gönder",
+        "success": "Talep başarıyla alındı! (Simülasyon)",
+        "mapTitle": "Tüm Ankara'da Hizmet",
+        "mapDesc": "Ekiplerimiz Ankara'nın her noktasında 7/24 hizmete hazır. Ücretsiz keşif için bizi arayın."
+    },
+    "references": {
+        "heading": "Tamamlanan Projeler",
+        "desc": "Ankara genelinde yüzlerce başarıyla tamamlanmış proje."
+    },
+    "partners": {
+        "title": "İş Ortaklarımız",
+        "heading": "Güvenilir Markalarla Çalışıyoruz",
+        "desc": "Dünya çapında tanınmış güvenlik kamera markalarının yetkili satıcısı ve kurulum ortağıyız"
+    },
+    "floating": {
+        "whatsapp": "WhatsApp ile iletişime geç",
+        "call": "Hemen ara"
+    }
+}

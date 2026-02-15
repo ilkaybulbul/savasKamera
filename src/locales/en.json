@@ -1,0 +1,147 @@
+{
+    "nav": {
+        "services": "Services",
+        "process": "Process",
+        "whyUs": "Why Us?",
+        "reviews": "Reviews",
+        "freeDiscovery": "Free Discovery",
+        "references": "References"
+    },
+    "hero": {
+        "badge": "#1 Security Solution in Ankara",
+        "titleStart": "Your Safety",
+        "titleEnd": "Our Business",
+        "description": "Your home and business are safe 24/7 with Ankara Security Camera. We redefine peace of mind in the Capital with high-resolution imaging systems, smart video intercoms and technology integration.",
+        "ctaPrimary": "Request Free Discovery",
+        "ctaSecondary": "See Our References",
+        "licensed": "Licensed Service",
+        "warranty": "2 Year Warranty",
+        "fastInstall": "Fast Installation"
+    },
+    "card": {
+        "resolution": "Resolution",
+        "resolutionValue": "4K Ultra HD",
+        "systemStatus": "System Status",
+        "systemStatusValue": "Active & Recording"
+    },
+    "services": {
+        "title": "Our Services",
+        "heading": "Comprehensive Security Solutions",
+        "description": "From camera systems to video intercoms, we provide end-to-end solutions for your property's security.",
+        "cctv": {
+            "title": "CCTV Installation & Configuration",
+            "desc": "Professional installation of night-vision 4K HD cameras, AI-powered motion detection, and remote monitoring systems. Aesthetic mounting without cable clutter."
+        },
+        "intercom": {
+            "title": "Smart Video Intercom",
+            "desc": "See your visitors in HD, speak with them, and unlock the door with a single touch. Security starts at your doorstep."
+        },
+        "smart": {
+            "title": "Smart Home Integration",
+            "desc": "Manage your security system from your smartphone. Fully compatible with Alexa and Google Home, creating automated scenarios."
+        },
+        "maintenance": {
+            "title": "Periodic System Maintenance",
+            "desc": "We ensure your system runs at 100% performance with annual maintenance agreements. Includes software updates and hardware checks."
+        },
+        "monitoring": {
+            "title": "24/7 Alarm & Monitoring",
+            "desc": "We keep your property under surveillance 24/7 with our professional monitoring center. Instant dispatch of police, fire, and ambulance services."
+        },
+        "cta": {
+            "title": "Professional Touch for Your Safety",
+            "desc": "Let us direct our free discovery team to determine the most accurate security solution for your home or business.",
+            "button": "Schedule Appointment Now"
+        }
+    },
+    "footer": {
+        "rights": "© 2024 Ankara Security Camera. All rights reserved.",
+        "privacy": "Privacy Policy",
+        "terms": "Terms of Use",
+        "links": "Quick Links",
+        "areas": "Service Areas",
+        "contact": "Contact",
+        "desc": "The trusted partner for camera and security systems in Ankara. We use the latest technology to protect your home and business.",
+        "call": "Call Now",
+        "email": "Email Support"
+    },
+    "process": {
+        "title": "How We Work",
+        "heading": "Step-by-Step Security Process",
+        "step1": {
+            "title": "Free Discovery & Risk Analysis",
+            "desc": "Our experts come to your location to identify blind spots, analyze environmental risks, and design the most suitable project for your budget."
+        },
+        "step2": {
+            "title": "Clean & Fast Installation",
+            "desc": "We perform aesthetic mounting using cable channels without damaging the decoration of your home or office. Usually delivered on the same day."
+        },
+        "step3": {
+            "title": "Training & 24/7 Support",
+            "desc": "We teach you in detail how to use the system. we are with you with our technical support line that you can reach at any time after installation."
+        }
+    },
+    "whyUs": {
+        "badge": "Our Difference",
+        "heading": "Why Ankara Security Camera?",
+        "desc": "We are not just a technology company; we are your solution partner to whom you entrust the safety of your family and business. We are the leader in Ankara with thousands of happy customers, hundreds of successful projects, and 15 years of experience.",
+        "feat1": {
+            "title": "Ankara Local Expertise",
+            "desc": "We know every district of the city and understand local needs."
+        },
+        "feat2": {
+            "title": "Same Day Service Guarantee",
+            "desc": "We never keep you waiting in emergencies, instant intervention."
+        },
+        "feat3": {
+            "title": "Advanced Mobile Experience",
+            "desc": "Control is in the palm of your hand, wherever you are in the world."
+        },
+        "feat4": {
+            "title": "2 Year 1-to-1 Replacement",
+            "desc": "No waiting for repairs on defective products, replacement with new ones."
+        },
+        "img1": "Next-Gen Technologies",
+        "img2": "Corporate References"
+    },
+    "reviews": {
+        "heading": "Trusted by Your Ankara Neighbors",
+        "r1": {
+            "quote": "The best investment for our shop in Çankaya. The clarity of the 4K cameras is great and the app is very easy to use.",
+            "role": "Business Owner - Çankaya"
+        },
+        "r2": {
+            "quote": "The installation team was professional, clean, and fast. They explained everything clearly. Thanks Ankara Security Camera.",
+            "role": "Homeowner - Batıkent"
+        },
+        "r3": {
+            "quote": "Knowing my house is monitored 24/7 makes me feel much safer. I definitely recommend it in Keçiören.",
+            "role": "Homeowner - Keçiören"
+        }
+    },
+    "contact": {
+        "heading": "Schedule Your Free Discovery",
+        "desc": "Fill out the form, and our security expert in Ankara will call you within 30 minutes.",
+        "name": "First Name",
+        "surname": "Last Name",
+        "phone": "Contact Number",
+        "property": "Property Type",
+        "submit": "Send Request",
+        "success": "Request received successfully! (Simulation)",
+        "mapTitle": "Service in All Ankara",
+        "mapDesc": "Our teams are ready for service 24/7 at every point of Ankara. Call us for free discovery."
+    },
+    "references": {
+        "heading": "Completed Projects",
+        "desc": "Hundreds of successfully completed projects across Ankara."
+    },
+    "partners": {
+        "title": "Our Partners",
+        "heading": "Working with Trusted Brands",
+        "desc": "Authorized dealer and installation partner of world-renowned security camera brands"
+    },
+    "floating": {
+        "whatsapp": "Contact via WhatsApp",
+        "call": "Call now"
+    }
+}
