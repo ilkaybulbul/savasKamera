@@ -6,6 +6,7 @@ import { asset } from '@/lib/utils';
 const items = [
     // pos = object-position, keeps the camera / subject inside the portrait crop
     { key: 'cctv', img: asset("/photos/cctv-wall-camera.webp"), pos: '62% 50%' },
+    { key: 'intercom', img: asset("/photos/process-intercom-use.webp"), pos: '45% 50%' },
     { key: 'smart', img: asset("/photos/smart-home-phone.webp"), pos: '45% 50%' },
     { key: 'maintenance', img: asset("/photos/maintenance-kit.webp"), pos: '42% 50%' },
     { key: 'monitoring', img: asset("/photos/monitoring-lens.webp"), pos: '53% 50%' },
