@@ -25,7 +25,7 @@ export default function References() {
                                 className="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
                                 style={{ backgroundImage: `url(${ref.img})` }}
                             ></div>
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-6 transition-opacity duration-300">
                                 <span className="text-primary font-bold text-xs uppercase tracking-wider mb-1">{ref.type}</span>
                                 <h3 className="text-white font-bold text-xl">{ref.title}</h3>
                             </div>

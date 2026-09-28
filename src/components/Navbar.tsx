@@ -25,8 +25,7 @@ export default function Navbar() {
                             <span className="material-symbols-outlined text-3xl">shield_lock</span>
                         </div>
                         <span className="text-xl font-bold tracking-tight text-text-dark dark:text-white">
-                            <span className="hidden lg:inline">Ankara Güvenlik Sistemleri</span>
-                            <span className="lg:hidden">AGS</span>
+                            SK Güvenlik
                         </span>
                     </div>
                     <div className="hidden md:flex flex-1 justify-end gap-6 items-center">

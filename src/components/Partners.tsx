@@ -4,7 +4,7 @@ export default function Partners() {
     const { t } = useTranslation();
 
     const partners = [
-        "Audio", "Dahua", "Hikvision", "X5Tech", "MXCam", "UNV", "FIBRA", "Netelsan", "Neutron",
+        "Audio", "Dahua", "Hikvision", "X5Tech", "UNV", "FIBRA",
 
     ];
 

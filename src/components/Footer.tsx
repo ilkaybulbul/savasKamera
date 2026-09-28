@@ -11,7 +11,7 @@ export default function Footer() {
                         <div className="size-10 text-primary flex items-center justify-center bg-white dark:bg-surface-dark rounded-lg shadow-sm border border-slate-100 dark:border-slate-800">
                             <span className="material-symbols-outlined text-3xl">shield_lock</span>
                         </div>
-                        <span className="text-xl font-bold text-text-dark dark:text-white leading-tight">Ankara Güvenlik<br />Sistemleri</span>
+                        <span className="text-xl font-bold text-text-dark dark:text-white leading-tight">SK Güvenlik</span>
                     </div>
                     <p className="text-sm text-text-muted dark:text-gray-400">{t('footer.desc')}</p>
                 </div>
