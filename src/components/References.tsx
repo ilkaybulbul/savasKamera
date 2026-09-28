@@ -1,13 +1,14 @@
 import { useTranslation } from 'react-i18next';
+import { asset } from '@/lib/utils';
 
 export default function References() {
     const { t } = useTranslation();
 
     const references = [
-        { title: "Çankaya Plaza", img: "/showcase/plaza.jpg", type: "Ticari" },
-        { title: "Batıkent Sitesi", img: "/showcase/door-entry.jpg", type: "Konut" },
-        { title: "Gölbaşı Villa", img: "/showcase/villa-cam.jpg", type: "Müstakil" },
-        { title: "Ostim Fabrika", img: "/showcase/night-cam.jpg", type: "Sanayi" },
+        { title: "Çankaya Plaza", img: asset("/showcase/plaza.jpg"), type: "Ticari" },
+        { title: "Batıkent Sitesi", img: asset("/showcase/door-entry.jpg"), type: "Konut" },
+        { title: "Gölbaşı Villa", img: asset("/showcase/villa-cam.jpg"), type: "Müstakil" },
+        { title: "Ostim Fabrika", img: asset("/showcase/night-cam.jpg"), type: "Sanayi" },
     ];
 
     return (

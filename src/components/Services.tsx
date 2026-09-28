@@ -1,12 +1,13 @@
 import { useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useMotionValueEvent, useScroll } from 'framer-motion';
+import { asset } from '@/lib/utils';
 
 const items = [
-    { key: 'cctv', img: '/showcase/villa-cam.jpg' },
-    { key: 'smart', img: '/showcase/intercom.jpg' },
-    { key: 'maintenance', img: '/showcase/door-entry.jpg' },
-    { key: 'monitoring', img: '/showcase/plaza.jpg' },
+    { key: 'cctv', img: asset("/showcase/villa-cam.jpg") },
+    { key: 'smart', img: asset("/showcase/intercom.jpg") },
+    { key: 'maintenance', img: asset("/showcase/door-entry.jpg") },
+    { key: 'monitoring', img: asset("/showcase/plaza.jpg") },
 ];
 
 const NAV_HEIGHT = 72;
@@ -62,7 +63,7 @@ export default function Services() {
                                     <h3>
                                         <button
                                             onClick={() => jumpTo(i)}
-                                            className={`t-display text-left text-[clamp(2.25rem,3.3vw,3.25rem)] transition-colors duration-300 ${i === active ? 'text-ink' : 'text-ghost hover:text-ink-muted'}`}
+                                            className={`t-display py-1 text-left text-[clamp(2.25rem,3.3vw,3.25rem)] transition-colors duration-300 ${i === active ? 'text-ink' : 'text-ghost hover:text-ink-muted'}`}
                                             aria-current={i === active ? 'true' : undefined}
                                         >
                                             {t(`services.${item.key}.title`)}

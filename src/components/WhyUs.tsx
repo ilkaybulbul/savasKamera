@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import { asset } from '@/lib/utils';
 
 export default function WhyUs() {
     const { t } = useTranslation();
@@ -11,8 +12,8 @@ export default function WhyUs() {
     ];
 
     const photos = [
-        { img: '/showcase/intercom.jpg', caption: t('whyUs.img1') },
-        { img: '/showcase/plaza.jpg', caption: t('whyUs.img2') },
+        { img: asset("/showcase/intercom.jpg"), caption: t('whyUs.img1') },
+        { img: asset("/showcase/plaza.jpg"), caption: t('whyUs.img2') },
     ];
 
     return (

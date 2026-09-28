@@ -20,7 +20,7 @@ export default function BackToTop() {
             {isVisible && (
                 <button
                     onClick={scrollToTop}
-                    className="fixed bottom-6 right-4 z-50 flex size-14 items-center justify-center rounded-full bg-accent text-accent-ink shadow-[0_2px_4px_rgb(10_11_31/0.12)] transition-transform duration-200 hover:-translate-y-0.5 active:scale-95 md:bottom-8 md:right-8"
+                    className="fixed bottom-[88px] right-4 z-50 flex size-12 items-center justify-center rounded-full bg-accent text-accent-ink shadow-[0_2px_4px_rgb(10_11_31/0.12)] transition-transform duration-200 hover:-translate-y-0.5 active:scale-95 lg:bottom-8 lg:right-8 lg:size-14"
                     aria-label="Back to top"
                 >
                     <span className="material-symbols-outlined">arrow_upward</span>

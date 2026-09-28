@@ -104,7 +104,7 @@ export default function ContactForm() {
                         </div>
                         <div>
                             <p className="text-sm text-on-night/60">{t('footer.email')}</p>
-                            <p className="break-all text-lg font-semibold">destek@ankaraguvenlik.com</p>
+                            <p className="text-base font-semibold [overflow-wrap:anywhere] sm:text-lg">destek@ankaraguvenlik.com</p>
                         </div>
                     </div>
                 </div>

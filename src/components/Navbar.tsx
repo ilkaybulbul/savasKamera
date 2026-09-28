@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import ThemeToggle from './ThemeToggle';
 import LanguageToggle from './LanguageToggle';
@@ -18,12 +18,20 @@ export default function Navbar() {
     const { t } = useTranslation();
     const [isOpen, setIsOpen] = useState(false);
 
+    // Escape closes the mobile menu.
+    useEffect(() => {
+        if (!isOpen) return;
+        const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setIsOpen(false); };
+        window.addEventListener('keydown', onKey);
+        return () => window.removeEventListener('keydown', onKey);
+    }, [isOpen]);
+
     return (
         <nav className="sticky top-0 z-50 border-b border-line bg-canvas/95 backdrop-blur-md">
-            <div className="mx-auto flex h-[72px] max-w-page items-center gap-3 px-4 lg:gap-8 lg:px-10">
+            <div className="mx-auto flex h-[72px] max-w-page items-center gap-2 px-4 sm:gap-3 lg:gap-8 lg:px-10">
                 <button
                     onClick={() => setIsOpen(!isOpen)}
-                    className="flex h-10 w-14 shrink-0 items-center justify-center rounded-full bg-accent text-accent-ink lg:hidden"
+                    className="flex h-10 w-12 shrink-0 items-center justify-center rounded-full bg-accent text-accent-ink sm:w-14 lg:hidden"
                     aria-expanded={isOpen}
                     aria-controls="mobile-menu"
                     aria-label="Menu"
@@ -31,20 +39,23 @@ export default function Navbar() {
                     <span className="material-symbols-outlined">{isOpen ? 'close' : 'menu'}</span>
                 </button>
 
-                <a href="#" className="shrink-0 text-ink" aria-label="SK Güvenlik">
+                <a href="#" className="flex h-11 shrink-0 items-center text-ink" aria-label="SK Güvenlik">
                     <Logo />
                 </a>
 
                 <div className="hidden items-center gap-6 lg:flex">
                     {links.map(link => (
-                        <a key={link.href} href={link.href} className="whitespace-nowrap text-[15px] font-medium text-ink transition-colors hover:text-ink-muted">
+                        <a key={link.href} href={link.href} className="whitespace-nowrap py-2 text-[15px] font-medium text-ink transition-colors hover:text-ink-muted">
                             {t(link.key)}
                         </a>
                     ))}
                 </div>
 
                 <div className="ml-auto flex items-center gap-2">
-                    <ThemeToggle />
+                    {/* On small phones the theme switch lives in the menu to keep the bar on one line. */}
+                    <div className="hidden sm:block">
+                        <ThemeToggle />
+                    </div>
                     <LanguageToggle />
                     <button onClick={scrollToContact} className="btn btn-ink ml-1 hidden lg:inline-flex">
                         {t('nav.freeDiscovery')}
@@ -54,7 +65,7 @@ export default function Navbar() {
 
             {/* Mobile menu */}
             {isOpen && (
-                <div id="mobile-menu" className="animate-fade-in-down absolute left-0 top-full w-full border-b border-line bg-canvas px-4 pb-6 pt-2 lg:hidden">
+                <div id="mobile-menu" className="animate-fade-in-down absolute left-0 top-full max-h-[calc(100dvh-72px)] w-full overflow-y-auto border-b border-line bg-canvas px-4 pb-6 pt-2 lg:hidden">
                     <div className="flex flex-col">
                         {links.map(link => (
                             <a
@@ -66,15 +77,20 @@ export default function Navbar() {
                                 {t(link.key)}
                             </a>
                         ))}
-                        <button
-                            onClick={() => {
-                                setIsOpen(false);
-                                scrollToContact();
-                            }}
-                            className="btn btn-lg btn-ink mt-6 w-full"
-                        >
-                            {t('nav.freeDiscovery')}
-                        </button>
+                        <div className="mt-6 flex items-center gap-3">
+                            <div className="sm:hidden">
+                                <ThemeToggle />
+                            </div>
+                            <button
+                                onClick={() => {
+                                    setIsOpen(false);
+                                    scrollToContact();
+                                }}
+                                className="btn btn-lg btn-ink flex-1"
+                            >
+                                {t('nav.freeDiscovery')}
+                            </button>
+                        </div>
                     </div>
                 </div>
             )}

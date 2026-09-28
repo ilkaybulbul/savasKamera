@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import { asset } from '@/lib/utils';
 
 const scrollTo = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
 
@@ -13,9 +14,9 @@ export default function Hero() {
 
     return (
         <section className="w-full px-4 pt-4 lg:px-10 lg:pt-6">
-            <div className="relative mx-auto flex min-h-[640px] max-w-page flex-col justify-end overflow-hidden rounded-card bg-night lg:h-[clamp(560px,calc(100dvh-72px-170px),740px)] lg:min-h-0 lg:rounded-hero">
+            <div className="relative mx-auto flex min-h-[max(520px,calc(100svh-120px))] max-w-page flex-col justify-end overflow-hidden rounded-card bg-night md:min-h-[640px] lg:min-h-[clamp(560px,calc(100dvh-72px-170px),740px)] lg:rounded-hero">
                 <img
-                    src="/showcase/night-cam.jpg"
+                    src={asset("/showcase/night-cam.jpg")}
                     alt=""
                     className="absolute inset-0 h-full w-full object-cover object-[70%_50%]"
                     fetchPriority="high"
@@ -23,15 +24,15 @@ export default function Hero() {
                 {/* Scrim only where the copy sits: bottom on phones, left side on desktop. */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-black/10 lg:bg-gradient-to-r lg:from-black/75 lg:via-black/35 lg:to-transparent" />
 
-                <div className="relative z-10 flex flex-col gap-6 p-6 pb-8 sm:p-10 lg:max-w-[720px] lg:p-14">
+                <div className="relative z-10 flex flex-col gap-5 p-6 pb-7 sm:gap-6 sm:p-10 lg:max-w-[720px] lg:p-14">
                     <span className="chip bg-white/15 text-white backdrop-blur-md">
                         {t('hero.badge')}
                     </span>
-                    <h1 className="t-display text-[clamp(3.5rem,8vw,7rem)] text-white">
+                    <h1 className="t-display text-[clamp(2.75rem,13vw,5.5rem)] text-white lg:text-[clamp(5rem,7vw,7rem)]">
                         <span className="rise" style={{ animationDelay: '0.05s' }}>{t('hero.titleStart')}</span>{' '}
                         <span className="rise" style={{ animationDelay: '0.18s' }}>{t('hero.titleEnd')}</span>
                     </h1>
-                    <p className="max-w-[46ch] text-lg leading-7 text-white/85 md:text-xl md:leading-8">
+                    <p className="max-w-[46ch] text-base leading-6 text-white/85 sm:text-lg sm:leading-7 md:text-xl md:leading-8">
                         {t('hero.description')}
                     </p>
                     <div className="flex flex-col gap-3 sm:flex-row">

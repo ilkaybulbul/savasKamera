@@ -15,7 +15,8 @@ import { ThemeProvider } from './context/ThemeContext';
 export default function App() {
     return (
         <ThemeProvider>
-            <div className="min-h-screen bg-canvas font-sans text-ink">
+            {/* pb reserves room for the fixed mobile action bar (FloatingButtons). */}
+            <div className="min-h-screen bg-canvas pb-[73px] font-sans text-ink lg:pb-0">
                 <Navbar />
                 <main>
                     <Hero />
