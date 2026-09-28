@@ -12,8 +12,8 @@ export default function WhyUs() {
     ];
 
     const photos = [
-        { img: asset("/showcase/intercom.jpg"), caption: t('whyUs.img1') },
-        { img: asset("/showcase/plaza.jpg"), caption: t('whyUs.img2') },
+        { img: asset("/photos/why-intercom-touch.webp"), caption: t('whyUs.img1'), pos: '50% 45%' },
+        { img: asset("/photos/why-corporate-entrance.webp"), caption: t('whyUs.img2'), pos: '18% 50%' },
     ];
 
     return (
@@ -39,7 +39,7 @@ export default function WhyUs() {
                 <div className="grid grid-cols-2 gap-4 lg:order-1">
                     {photos.map((photo, i) => (
                         <figure key={photo.img} className={`relative overflow-hidden rounded-card ${i === 0 ? 'mt-16' : 'mb-16'}`}>
-                            <img src={photo.img} alt={photo.caption} loading="lazy" className="aspect-[3/4] h-full w-full object-cover" />
+                            <img src={photo.img} alt={photo.caption} loading="lazy" style={{ objectPosition: photo.pos }} className="aspect-[3/4] h-full w-full object-cover" />
                             <figcaption className="chip absolute bottom-4 left-4 right-4 w-auto justify-center bg-night/70 text-center text-on-night backdrop-blur-md sm:right-auto">
                                 {photo.caption}
                             </figcaption>

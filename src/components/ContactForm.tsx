@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { asset } from '@/lib/utils';
 
 const inputClass = "h-14 w-full rounded-2xl border border-line bg-canvas px-5 text-base text-ink outline-none transition-[border-color,box-shadow] placeholder:text-ink-muted/70 focus:border-ink focus:ring-4 focus:ring-ink/10";
 const labelClass = "mb-2 block text-sm font-medium text-ink";
@@ -86,9 +87,11 @@ export default function ContactForm() {
                 </div>
 
                 <div className="relative flex min-h-[480px] flex-col justify-between gap-10 overflow-hidden rounded-card bg-night p-6 text-on-night sm:p-10 lg:rounded-hero lg:p-14">
-                    <div
-                        className="absolute inset-0 bg-cover bg-center opacity-20 grayscale"
-                        style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuB7kuDByUaSAORiyTfyxN76tbeBII_GC3uGqGfkHDswQ3Vcb8o2AdV83KSSIJzDQ9AWEUhwcBSPhGPgvCIbFJYyHfAZ66nVLm7GMX34MMQbeZvfVirzQFdYRHgpWiKt664wRpcORhggdYq2UxvIai_7Rs46KbMvxbpGiAJEbQ8mDRvbbOZ0NZ0_zZuiihGmbE_ugJxzevAmVkeHiaoxKV5RkkjsNVwNND11OsUzsaz1cIXLXnxgyb2-nP-xnS4JIwr0owtnko5hkw')" }}
+                    <img
+                        src={asset("/photos/contact-night.webp")}
+                        alt=""
+                        loading="lazy"
+                        className="absolute inset-0 h-full w-full object-cover object-[85%_50%]"
                     />
                     <div className="relative flex flex-col gap-5">
                         <span className="flex size-14 items-center justify-center rounded-full bg-accent text-accent-ink">

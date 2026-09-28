@@ -4,10 +4,11 @@ import { useMotionValueEvent, useScroll } from 'framer-motion';
 import { asset } from '@/lib/utils';
 
 const items = [
-    { key: 'cctv', img: asset("/showcase/villa-cam.jpg") },
-    { key: 'smart', img: asset("/showcase/intercom.jpg") },
-    { key: 'maintenance', img: asset("/showcase/door-entry.jpg") },
-    { key: 'monitoring', img: asset("/showcase/plaza.jpg") },
+    // pos = object-position, keeps the camera / subject inside the portrait crop
+    { key: 'cctv', img: asset("/photos/cctv-wall-camera.webp"), pos: '62% 50%' },
+    { key: 'smart', img: asset("/photos/smart-home-phone.webp"), pos: '45% 50%' },
+    { key: 'maintenance', img: asset("/photos/maintenance-kit.webp"), pos: '42% 50%' },
+    { key: 'monitoring', img: asset("/photos/monitoring-lens.webp"), pos: '53% 50%' },
 ];
 
 const NAV_HEIGHT = 72;
@@ -52,6 +53,7 @@ export default function Services() {
                                     alt={i === active ? t(`services.${item.key}.title`) : ''}
                                     aria-hidden={i !== active}
                                     loading="lazy"
+                                    style={{ objectPosition: item.pos }}
                                     className={`absolute inset-0 h-full w-full object-cover transition-[opacity,transform] duration-700 ease-out ${i === active ? 'scale-100 opacity-100' : 'scale-[1.04] opacity-0'}`}
                                 />
                             ))}
@@ -89,6 +91,7 @@ export default function Services() {
                             src={item.img}
                             alt={t(`services.${item.key}.title`)}
                             loading="lazy"
+                            style={{ objectPosition: item.pos }}
                             className="aspect-[4/3] w-full rounded-card object-cover"
                         />
                         <h3 className="t-display text-[40px] text-ink">{t(`services.${item.key}.title`)}</h3>
@@ -117,7 +120,7 @@ export default function Services() {
                     </div>
                     <div className="relative mx-auto aspect-square w-full max-w-[420px] overflow-hidden rounded-card">
                         <img
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWzLVp-ONIXChQEZheEpcmYz_85KDPtLbV9QSKltn8RFUerOZ0W5gj-HHAi37KBwRo-DRO3n9Z_5pv7PRlmFo5H63xVahA0ulw5YMe7WqIJ42ncxiREZs5s4BymEawSBBeZhTSDRG9QclXXD4Oz855G9N5ig6ZjDZM8Wyhaz8SM3OhqKWiNRBJWJCGCM6gIntYEAZfuTthRbuMqvakhkLjfvv6d3FqCNfrGiv_qbWQbfyPLa5t-8cDWKDLkM8Q9xJtJMqibYB7sg"
+                            src={asset("/photos/cta-dome-camera.webp")}
                             alt=""
                             loading="lazy"
                             className="h-full w-full object-cover"

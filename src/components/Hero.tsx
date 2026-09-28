@@ -16,9 +16,9 @@ export default function Hero() {
         <section className="w-full px-4 pt-4 lg:px-10 lg:pt-6">
             <div className="relative mx-auto flex min-h-[max(520px,calc(100svh-120px))] max-w-page flex-col justify-end overflow-hidden rounded-card bg-night md:min-h-[640px] lg:min-h-[clamp(560px,calc(100dvh-72px-170px),740px)] lg:rounded-hero">
                 <img
-                    src={asset("/showcase/night-cam.jpg")}
+                    src={asset("/photos/hero-family-entrance.webp")}
                     alt=""
-                    className="absolute inset-0 h-full w-full object-cover object-[70%_50%]"
+                    className="absolute inset-0 h-full w-full object-cover object-[60%_15%]"
                     fetchPriority="high"
                 />
                 {/* Scrim only where the copy sits: bottom on phones, left side on desktop. */}

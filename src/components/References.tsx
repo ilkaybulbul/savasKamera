@@ -5,10 +5,10 @@ export default function References() {
     const { t } = useTranslation();
 
     const references = [
-        { title: "Çankaya Plaza", img: asset("/showcase/plaza.jpg"), type: "Ticari" },
-        { title: "Batıkent Sitesi", img: asset("/showcase/door-entry.jpg"), type: "Konut" },
-        { title: "Gölbaşı Villa", img: asset("/showcase/villa-cam.jpg"), type: "Müstakil" },
-        { title: "Ostim Fabrika", img: asset("/showcase/night-cam.jpg"), type: "Sanayi" },
+        { title: "Çankaya Plaza", img: asset("/photos/ref-plaza-atrium.webp"), type: "Ticari", pos: "50% 50%" },
+        { title: "Batıkent Sitesi", img: asset("/photos/ref-residential-site.webp"), type: "Konut", pos: "36% 50%" },
+        { title: "Gölbaşı Villa", img: asset("/photos/ref-villa-dusk.webp"), type: "Müstakil", pos: "40% 50%" },
+        { title: "Ostim Fabrika", img: asset("/photos/ref-factory-dusk.webp"), type: "Sanayi", pos: "62% 50%" },
     ];
 
     return (
@@ -26,6 +26,7 @@ export default function References() {
                             src={ref.img}
                             alt={ref.title}
                             loading="lazy"
+                            style={{ objectPosition: ref.pos }}
                             className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                         />
                         <span className="chip absolute left-4 top-4 bg-mint text-xs font-semibold text-accent-ink">{ref.type}</span>
