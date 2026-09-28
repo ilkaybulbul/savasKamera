@@ -6,10 +6,10 @@ export default function ThemeToggle() {
     return (
         <button
             onClick={toggleTheme}
-            className="p-2 rounded-lg bg-gray-100 dark:bg-slate-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-slate-700 transition-colors"
+            className="flex size-11 items-center justify-center rounded-full border border-line text-ink transition-colors hover:bg-surface"
             aria-label="Toggle Theme"
         >
-            <span className="material-symbols-outlined text-xl leading-none">
+            <span className="material-symbols-outlined text-[22px] leading-none">
                 {theme === 'light' ? 'dark_mode' : 'light_mode'}
             </span>
         </button>

@@ -1,51 +1,126 @@
+import { useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useMotionValueEvent, useScroll } from 'framer-motion';
 
-const ServiceCard = ({ icon, title, desc }: { icon: string, title: string, desc: string }) => (
-    <div className="group bg-background-light dark:bg-background-dark border border-[#e2e8e8] dark:border-[#1e3a3a] p-8 rounded-2xl hover:border-primary transition-all duration-300 hover:shadow-xl hover:shadow-primary/5">
-        <div className="size-14 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
-            <span className="material-symbols-outlined text-4xl">{icon}</span>
-        </div>
-        <h3 className="text-xl font-bold text-navy-900 dark:text-white mb-3">{title}</h3>
-        <p className="text-sm text-slate-600 dark:text-gray-400 leading-relaxed">{desc}</p>
-    </div>
-);
+const items = [
+    { key: 'cctv', img: '/showcase/villa-cam.jpg' },
+    { key: 'smart', img: '/showcase/intercom.jpg' },
+    { key: 'maintenance', img: '/showcase/door-entry.jpg' },
+    { key: 'monitoring', img: '/showcase/plaza.jpg' },
+];
+
+const NAV_HEIGHT = 72;
 
 export default function Services() {
     const { t } = useTranslation();
+    const trackRef = useRef<HTMLDivElement>(null);
+    const [active, setActive] = useState(0);
+
+    // Scroll through the tall track drives which service is "lit". State only changes at item boundaries.
+    const { scrollYProgress } = useScroll({ target: trackRef, offset: ['start start', 'end end'] });
+    useMotionValueEvent(scrollYProgress, 'change', v => {
+        setActive(Math.min(items.length - 1, Math.max(0, Math.floor(v * items.length))));
+    });
+
+    const jumpTo = (i: number) => {
+        const el = trackRef.current;
+        if (!el) return;
+        // Inverse of useScroll's progress: p = (scrollY - trackTop) / (trackHeight - viewport).
+        const top = el.getBoundingClientRect().top + window.scrollY;
+        const travel = el.offsetHeight - window.innerHeight;
+        window.scrollTo({ top: top + travel * ((i + 0.5) / items.length), behavior: 'smooth' });
+    };
 
     return (
-        <section className="w-full min-h-screen flex items-center py-24 md:py-32 px-4 md:px-8 bg-white dark:bg-surface-dark" id="services">
-            <div className="max-w-7xl mx-auto flex flex-col items-center">
-                <div className="text-center max-w-2xl mb-16">
-                    <span className="text-primary font-bold text-sm tracking-widest uppercase mb-2 block">{t('services.title')}</span>
-                    <h2 className="text-3xl md:text-4xl font-bold text-navy-900 dark:text-white mb-4">{t('services.heading')}</h2>
-                    <p className="text-slate-600 dark:text-gray-300">{t('services.description')}</p>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 w-full">
-                    <ServiceCard icon="videocam" title={t('services.cctv.title')} desc={t('services.cctv.desc')} />
-                    <ServiceCard icon="home_iot_device" title={t('services.smart.title')} desc={t('services.smart.desc')} />
-                    <ServiceCard icon="build_circle" title={t('services.maintenance.title')} desc={t('services.maintenance.desc')} />
-                    <ServiceCard icon="visibility" title={t('services.monitoring.title')} desc={t('services.monitoring.desc')} />
-                </div>
+        <section className="w-full bg-canvas pt-16 lg:pt-24" id="services">
+            <header className="mx-auto flex max-w-3xl flex-col items-center gap-5 px-4 text-center">
+                <span className="chip bg-surface text-ink">{t('services.title')}</span>
+                <h2 className="t-display text-[clamp(2.75rem,6vw,5.25rem)] text-ink">{t('services.heading')}</h2>
+                <p className="t-lead max-w-[56ch]">{t('services.description')}</p>
+            </header>
 
-                <div className="mt-20 w-full rounded-3xl overflow-hidden relative min-h-[400px] flex items-center group shadow-2xl">
-                    <div className="absolute inset-0 bg-cover bg-top-5px transition-transform duration-500 group-hover:scale-105" style={{ backgroundImage: "url('/showcase/villa-cam.jpg')" }}></div>
-                    <div className="absolute inset-0 bg-gradient-to-r from-navy-900/95 via-navy-900/80 to-transparent p-8 md:p-12 flex flex-col justify-center">
-                        <div className="max-w-2xl relative z-10">
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/20 w-fit border border-primary/30 mb-6">
-                                <span className="material-symbols-outlined text-primary text-sm">engineering</span>
-                                <span className="text-xs font-bold text-primary uppercase tracking-wider">{t('hero.fastInstall')}</span>
-                            </div>
-                            <h3 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">{t('services.cta.title')}</h3>
-                            <p className="text-lg text-gray-300 mb-8 leading-relaxed max-w-xl">{t('services.cta.desc')}</p>
-                            <button
-                                onClick={() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })}
-                                className="bg-primary hover:bg-primary-dark text-white text-base font-bold px-8 py-4 rounded-xl shadow-lg shadow-primary/25 transition-all hover:translate-x-1 inline-flex items-center gap-2"
-                            >
-                                <span>{t('services.cta.button')}</span>
-                                <span className="material-symbols-outlined">arrow_forward</span>
-                            </button>
+            {/* Desktop: pinned media + headline list */}
+            <div ref={trackRef} className="relative mt-8 hidden lg:block" style={{ height: `${items.length * 70 + 30}vh` }}>
+                <div className="sticky flex items-center" style={{ top: NAV_HEIGHT, height: `calc(100dvh - ${NAV_HEIGHT}px)` }}>
+                    <div className="mx-auto grid w-full max-w-[1200px] grid-cols-[minmax(0,5fr)_minmax(0,6fr)] items-center gap-16 px-10">
+                        <div className="relative aspect-[4/5] max-h-[calc(100dvh-160px)] w-full overflow-hidden rounded-card bg-surface">
+                            {items.map((item, i) => (
+                                <img
+                                    key={item.key}
+                                    src={item.img}
+                                    alt={i === active ? t(`services.${item.key}.title`) : ''}
+                                    aria-hidden={i !== active}
+                                    loading="lazy"
+                                    className={`absolute inset-0 h-full w-full object-cover transition-[opacity,transform] duration-700 ease-out ${i === active ? 'scale-100 opacity-100' : 'scale-[1.04] opacity-0'}`}
+                                />
+                            ))}
                         </div>
+
+                        <ol className="flex flex-col gap-5">
+                            {items.map((item, i) => (
+                                <li key={item.key}>
+                                    <h3>
+                                        <button
+                                            onClick={() => jumpTo(i)}
+                                            className={`t-display text-left text-[clamp(2.25rem,3.3vw,3.25rem)] transition-colors duration-300 ${i === active ? 'text-ink' : 'text-ghost hover:text-ink-muted'}`}
+                                            aria-current={i === active ? 'true' : undefined}
+                                        >
+                                            {t(`services.${item.key}.title`)}
+                                        </button>
+                                    </h3>
+                                    <div className={`grid transition-[grid-template-rows,opacity] duration-500 ease-out ${i === active ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}>
+                                        <p className="max-w-[52ch] overflow-hidden text-base leading-7 text-ink-soft">
+                                            <span className="block pt-3">{t(`services.${item.key}.desc`)}</span>
+                                        </p>
+                                    </div>
+                                </li>
+                            ))}
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            {/* Phones and tablets: stacked cards, everything visible */}
+            <ol className="mx-auto mt-12 grid max-w-2xl gap-12 px-4 lg:hidden">
+                {items.map(item => (
+                    <li key={item.key} className="flex flex-col gap-5">
+                        <img
+                            src={item.img}
+                            alt={t(`services.${item.key}.title`)}
+                            loading="lazy"
+                            className="aspect-[4/3] w-full rounded-card object-cover"
+                        />
+                        <h3 className="t-display text-[40px] text-ink">{t(`services.${item.key}.title`)}</h3>
+                        <p className="text-base leading-7 text-ink-soft">{t(`services.${item.key}.desc`)}</p>
+                    </li>
+                ))}
+            </ol>
+
+            {/* Call to action */}
+            <div className="px-4 pb-4 pt-20 lg:px-10 lg:pt-16">
+                <div className="mx-auto grid max-w-page items-center gap-10 overflow-hidden rounded-card bg-accent p-8 text-accent-ink sm:p-12 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:rounded-hero lg:p-16">
+                    <div className="flex flex-col gap-6">
+                        <span className="chip bg-canvas text-ink">
+                            <span className="material-symbols-outlined text-[18px]">engineering</span>
+                            {t('hero.fastInstall')}
+                        </span>
+                        <h3 className="t-display text-[clamp(2.5rem,5vw,4.5rem)]">{t('services.cta.title')}</h3>
+                        <p className="max-w-[48ch] text-lg leading-7 text-accent-ink/80">{t('services.cta.desc')}</p>
+                        <button
+                            onClick={() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })}
+                            className="btn btn-lg w-full bg-[#0A0B1F] text-white hover:bg-[#0A0B1F]/85 sm:w-fit"
+                        >
+                            {t('services.cta.button')}
+                            <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
+                        </button>
+                    </div>
+                    <div className="relative mx-auto aspect-square w-full max-w-[420px] overflow-hidden rounded-card">
+                        <img
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWzLVp-ONIXChQEZheEpcmYz_85KDPtLbV9QSKltn8RFUerOZ0W5gj-HHAi37KBwRo-DRO3n9Z_5pv7PRlmFo5H63xVahA0ulw5YMe7WqIJ42ncxiREZs5s4BymEawSBBeZhTSDRG9QclXXD4Oz855G9N5ig6ZjDZM8Wyhaz8SM3OhqKWiNRBJWJCGCM6gIntYEAZfuTthRbuMqvakhkLjfvv6d3FqCNfrGiv_qbWQbfyPLa5t-8cDWKDLkM8Q9xJtJMqibYB7sg"
+                            alt=""
+                            loading="lazy"
+                            className="h-full w-full object-cover"
+                        />
                     </div>
                 </div>
             </div>

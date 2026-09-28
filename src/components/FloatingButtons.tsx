@@ -8,13 +8,13 @@ export default function FloatingButtons() {
     const phoneNumber = '05405910619';
 
     return (
-        <div className="fixed bottom-24 left-4 md:left-8 flex flex-col gap-3 z-40">
+        <div className="fixed bottom-6 left-4 z-40 flex flex-col gap-3 md:bottom-8 md:left-8">
             {/* WhatsApp Button */}
             <a
                 href={`https://wa.me/${whatsappNumber}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group size-14 rounded-full bg-[#25D366] hover:bg-[#20BA5A] text-white shadow-lg hover:shadow-xl hover:scale-110 active:scale-95 transition-all duration-200 flex items-center justify-center"
+                className="flex size-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_2px_4px_rgb(10_11_31/0.12)] transition-transform duration-200 hover:-translate-y-0.5 active:scale-95"
                 aria-label={t('floating.whatsapp') || 'WhatsApp ile iletişime geç'}
                 title={t('floating.whatsapp') || 'WhatsApp ile iletişime geç'}
             >
@@ -26,11 +26,11 @@ export default function FloatingButtons() {
             {/* Phone Button */}
             <a
                 href={`tel:${phoneNumber}`}
-                className="group size-14 rounded-full bg-primary hover:bg-primary-dark text-white shadow-lg hover:shadow-xl hover:scale-110 active:scale-95 transition-all duration-200 flex items-center justify-center"
+                className="flex size-14 items-center justify-center rounded-full border border-white/20 bg-ink text-canvas shadow-[0_2px_4px_rgb(10_11_31/0.12)] transition-transform duration-200 hover:-translate-y-0.5 active:scale-95"
                 aria-label={t('floating.call') || 'Hemen ara'}
                 title={t('floating.call') || 'Hemen ara'}
             >
-                <span className="material-symbols-outlined text-3xl">phone</span>
+                <span className="material-symbols-outlined material-symbols-filled text-[26px]">call</span>
             </a>
         </div>
     );

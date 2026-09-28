@@ -15,7 +15,7 @@ import { ThemeProvider } from './context/ThemeContext';
 export default function App() {
     return (
         <ThemeProvider>
-            <div className="min-h-screen bg-background-light dark:bg-background-dark text-navy-900 dark:text-white font-body selection:bg-primary selection:text-white">
+            <div className="min-h-screen bg-canvas font-sans text-ink">
                 <Navbar />
                 <main>
                     <Hero />

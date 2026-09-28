@@ -11,28 +11,29 @@ export default function References() {
     ];
 
     return (
-        <section className="w-full py-20 px-4 md:px-8 bg-background-light dark:bg-background-dark" id="references">
-            <div className="max-w-7xl mx-auto">
-                <div className="text-center mb-16">
-                    <span className="text-primary font-bold text-sm tracking-widest uppercase mb-2 block">{t('nav.references')}</span>
-                    <h2 className="text-3xl md:text-4xl font-bold text-navy-900 dark:text-white">{t('references.heading')}</h2>
-                    <p className="text-slate-600 dark:text-gray-300 mt-4">{t('references.desc')}</p>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {references.map((ref, i) => (
-                        <div key={i} className="group relative overflow-hidden rounded-2xl shadow-lg aspect-square cursor-pointer">
-                            <div
-                                className="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-                                style={{ backgroundImage: `url(${ref.img})` }}
-                            ></div>
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-6 transition-opacity duration-300">
-                                <span className="text-primary font-bold text-xs uppercase tracking-wider mb-1">{ref.type}</span>
-                                <h3 className="text-white font-bold text-xl">{ref.title}</h3>
-                            </div>
+        <section className="w-full bg-canvas py-20 lg:py-28" id="references">
+            <header className="mx-auto flex max-w-page flex-col gap-4 px-4 lg:px-10">
+                <h2 className="t-display text-[clamp(2.75rem,6vw,5.25rem)] text-ink">{t('references.heading')}</h2>
+                <p className="t-lead max-w-[52ch]">{t('references.desc')}</p>
+            </header>
+
+            {/* Swipe row on phones, 4-up grid from lg */}
+            <ul className="mx-auto mt-10 flex max-w-page snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 [scrollbar-width:none] lg:grid lg:grid-cols-4 lg:overflow-visible lg:px-10 [&::-webkit-scrollbar]:hidden">
+                {references.map(ref => (
+                    <li key={ref.title} className="group relative aspect-[3/4] w-[78%] shrink-0 snap-start overflow-hidden rounded-card bg-surface sm:w-[46%] lg:w-auto">
+                        <img
+                            src={ref.img}
+                            alt={ref.title}
+                            loading="lazy"
+                            className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                        />
+                        <span className="chip absolute left-4 top-4 bg-mint text-xs font-semibold text-accent-ink">{ref.type}</span>
+                        <div className="absolute inset-x-3 bottom-3 rounded-plate bg-canvas px-5 py-4">
+                            <h3 className="t-display text-[28px] text-ink">{ref.title}</h3>
                         </div>
-                    ))}
-                </div>
-            </div>
+                    </li>
+                ))}
+            </ul>
         </section>
     );
 }

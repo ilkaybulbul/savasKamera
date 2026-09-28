@@ -11,7 +11,7 @@ export default function LanguageToggle() {
     return (
         <button
             onClick={toggleLanguage}
-            className="px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 text-xs font-bold text-navy-900 dark:text-white hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors"
+            className="flex h-11 items-center justify-center rounded-full border border-line px-4 text-sm font-semibold text-ink transition-colors hover:bg-surface"
             aria-label="Switch Language"
         >
             {i18n.language === 'tr' ? 'EN' : 'TR'}

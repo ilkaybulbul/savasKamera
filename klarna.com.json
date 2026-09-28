@@ -1,0 +1,75 @@
+{
+  "source": "https://www.klarna.com/us/",
+  "tokens": {
+    "spacing": {
+      "scale": [4, 8, 12, 16, 24, 32, 40, 48, 80],
+      "base_unit": 4
+    },
+    "typography": {
+      "families": ["Klarna Title (condensed display)", "Klarna Text (body)"],
+      "scale": [
+        { "role": "display-list", "size": "100px", "weight": "700", "lineHeight": "0.95", "family": "Klarna Title" },
+        { "role": "hero / h2", "size": "84px", "weight": "700", "lineHeight": "80px", "family": "Klarna Title" },
+        { "role": "section h2", "size": "64px", "weight": "700", "family": "Klarna Title" },
+        { "role": "stat number / h3", "size": "52px", "weight": "700", "family": "Klarna Title" },
+        { "role": "card title", "size": "44px", "weight": "700", "family": "Klarna Title" },
+        { "role": "lead", "size": "20px", "weight": "400", "lineHeight": "28px", "family": "Klarna Text" },
+        { "role": "body", "size": "16px", "weight": "400", "family": "Klarna Text" },
+        { "role": "ui / nav / button", "size": "16px", "weight": "500", "family": "Klarna Text" },
+        { "role": "caption / legal", "size": "14px", "weight": "400", "family": "Klarna Text" },
+        { "role": "badge", "size": "12px", "weight": "500", "family": "Klarna Text" }
+      ]
+    },
+    "colors": [
+      { "role": "background", "value": "#FFFFFF" },
+      { "role": "ink (text, primary button, footer bg)", "value": "#0B051D" },
+      { "role": "text-secondary", "value": "#282636" },
+      { "role": "text-muted", "value": "#504F5F" },
+      { "role": "inactive headline", "value": "#C4C3CA" },
+      { "role": "inactive headline (mid)", "value": "#96959F" },
+      { "role": "accent-pink (CTA pill, app widget)", "value": "#FFA8CD" },
+      { "role": "data badge (mint)", "value": "#C1F4D1" },
+      { "role": "warm surface / text on ink", "value": "#F9F8F5" },
+      { "role": "notice banner (lavender)", "value": "#EEEAFB" }
+    ],
+    "radius": ["9999px (buttons, badges, nav pills)", "16px", "24px", "32px", "48px (hero + media cards)", "48px 48px 16px (floating widget)"],
+    "shadows": ["0 2px 4px rgba(0,0,0,0.10) (used on 6 elements only)"],
+    "image_ratios": [
+      { "usage": "hero media card", "ratio": "~2.4:1 (1360x560)" },
+      { "usage": "feature media (sticky)", "ratio": "~0.8:1 (452x565)" },
+      { "usage": "product card", "ratio": "~0.73:1 (310x428)" },
+      { "usage": "brand carousel card", "ratio": "~1.5:1 (328x219)" }
+    ],
+    "grid": { "max_width": "1440px (40px side inset)", "columns": 5, "gutter": "48px" }
+  },
+  "taste": [
+    {
+      "name": "Headline as state indicator",
+      "trigger": "When presenting 4-6 parallel product features in one section",
+      "decision": "Chose a stacked list of full-size display headlines where only the active one turns ink (#0B051D) and the rest sit at #C4C3CA/#96959F, over tabs, icon grids or carousels with arrows",
+      "reason": "Because a reader sees the entire menu of options at once and the scroll position itself tells them where they are; no control needs to be learned",
+      "evidence": ["52-100px Klarna Title headlines rendered in #96959F/#C4C3CA when inactive", "active item gains a 16px body paragraph + 9999px pill CTA", "same device used twice: 'Designed around you…' sticky list and 'Payments / Cards / Memberships…' centered list"]
+    },
+    {
+      "name": "Depth from radius and photography, not shadow",
+      "trigger": "When separating media blocks from a white page",
+      "decision": "Chose 32-48px corner radius on photo cards and zero borders/shadows, over elevated cards with drop shadows or outlined containers",
+      "reason": "Because large soft corners read as physical objects (a phone, a card) while keeping the page flat and fast to scan",
+      "evidence": ["only 1 shadow value on 6 elements (0 2px 4px rgba(0,0,0,.1))", "48px radius x19, 32px x39", "white #FFFFFF covers 88.5% of surface; no section dividers, sections separated by 80px gaps"]
+    },
+    {
+      "name": "Pink is a signal, ink does the work",
+      "trigger": "When choosing how much brand color to spread across the page",
+      "decision": "Chose to keep pink #FFA8CD to ~0.3% of surface (one hero CTA, the app widget, the selected option) and put every other CTA in ink #0B051D, over a pink-washed page or pink headings",
+      "reason": "Because a scarce color is instantly read as 'this is the thing to press'; the brand stays recognisable without tiring the eye",
+      "evidence": ["#FFA8CD areaPct 0.3%", "#0B051D used 81x as accent candidate (buttons, footer)", "mint #C1F4D1 restricted to cashback data badges"]
+    },
+    {
+      "name": "Extreme scale contrast between two widths",
+      "trigger": "When setting the type system",
+      "decision": "Chose a condensed heavy display face at 64-100px with ~0.95 line-height against a 16-20px regular text face, over a single family with moderate 1.25x steps",
+      "reason": "Because condensed letters let short, confident sentences fill the width at poster size, so a page with little copy still feels loud and specific",
+      "evidence": ["84px/80px h1 (line-height 0.95)", "body 20px/28px lead, 16px body, 14px caption", "5:1 display-to-body ratio", "footer wordmark spans the full 1380px width"]
+    }
+  ]
+}

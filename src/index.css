@@ -2,21 +2,71 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
+ * Design tokens. Visual language after klarna.com (see klarna.com.md at repo root):
+ * white canvas, near-black ink doing the heavy lifting, one pastel signal accent
+ * (derived from the SK shield blue), mint reserved for status badges.
+ * Values are "R G B" so Tailwind can apply alpha: bg-ink/10.
+ */
 @layer base {
+    :root {
+        --canvas: 255 255 255;
+        --surface: 243 243 248;
+        --ink: 10 11 31;
+        --ink-soft: 42 43 61;
+        --ink-muted: 85 86 106;
+        --ghost: 196 196 208;
+        --line: 228 228 236;
+        --accent: 179 196 255;
+        --accent-ink: 10 11 31;
+        --mint: 193 244 209;
+        --night: 10 11 31;
+        --on-night: 244 244 248;
+        --brand: 27 70 161;
+        color-scheme: light;
+    }
+
+    .dark {
+        --canvas: 11 11 20;
+        --surface: 24 24 36;
+        --ink: 244 244 248;
+        --ink-soft: 214 214 224;
+        --ink-muted: 160 160 178;
+        --ghost: 64 64 82;
+        --line: 40 40 54;
+        --accent: 179 196 255;
+        --accent-ink: 10 11 31;
+        --mint: 193 244 209;
+        --night: 5 5 12;
+        --on-night: 244 244 248;
+        --brand: 150 172 255;
+        color-scheme: dark;
+    }
+
     html {
         scroll-behavior: smooth;
+        -webkit-text-size-adjust: 100%;
     }
 
     body {
-        @apply font-body text-navy-900 dark:text-gray-100 bg-background-light dark:bg-background-dark;
+        @apply bg-canvas font-sans text-ink antialiased;
+        font-size: 16px;
+        line-height: 1.5;
     }
 
-    /* Focus visible for accessibility */
+    /* Sticky nav is 72px tall; keep anchored headings clear of it. */
+    section[id] {
+        scroll-margin-top: 72px;
+    }
+
+    ::selection {
+        @apply bg-accent text-accent-ink;
+    }
+
     *:focus-visible {
-        @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-white dark:ring-offset-background-dark;
+        @apply outline-none ring-2 ring-ink ring-offset-2 ring-offset-canvas;
     }
 
-    /* Respect reduced motion preference */
     @media (prefers-reduced-motion: reduce) {
 
         *,
@@ -30,59 +80,76 @@
     }
 }
 
-/* Custom Scrollbar */
+@layer components {
+
+    /* Condensed heavy display face: Archivo on its width axis. */
+    .t-display {
+        font-family: "Archivo", system-ui, sans-serif;
+        font-stretch: 72%;
+        font-weight: 800;
+        letter-spacing: -0.012em;
+        line-height: 0.95;
+    }
+
+    .t-lead {
+        @apply text-lg leading-7 text-ink-soft md:text-xl md:leading-8;
+    }
+
+    /* Buttons: every interactive control is a full pill. */
+    .btn {
+        @apply inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full px-6 font-semibold transition-[background-color,color,transform] duration-200 active:scale-[0.98];
+        height: 48px;
+    }
+
+    .btn-lg {
+        height: 56px;
+        @apply px-7 text-base;
+    }
+
+    .btn-ink {
+        @apply bg-ink text-canvas hover:bg-ink/85;
+    }
+
+    .btn-accent {
+        @apply bg-accent text-accent-ink hover:bg-accent/80;
+    }
+
+    .chip {
+        @apply inline-flex w-fit items-center gap-2 rounded-full px-3.5 py-1.5 text-sm font-medium;
+    }
+
+    .material-symbols-filled {
+        font-variation-settings: 'FILL' 1;
+    }
+}
+
+/* Custom scrollbar */
 ::-webkit-scrollbar {
-    width: 8px;
+    width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #f1f1f1;
-}
-
-.dark ::-webkit-scrollbar-track {
-    background: #1e293b;
+    background: rgb(var(--canvas));
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #cbd5e1;
-    border-radius: 4px;
-}
-
-.dark ::-webkit-scrollbar-thumb {
-    background: #475569;
+    background: rgb(var(--ghost));
+    border-radius: 9999px;
+    border: 3px solid rgb(var(--canvas));
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #94a3b8;
-}
-
-/* Animation Utilities */
-.animate-float {
-    animation: float 4s ease-in-out infinite;
-}
-
-@keyframes float {
-    0% {
-        transform: translateY(0px);
-    }
-
-    50% {
-        transform: translateY(-10px);
-    }
-
-    100% {
-        transform: translateY(0px);
-    }
+    background: rgb(var(--ink-muted));
 }
 
 .animate-fade-in-down {
-    animation: fadeInDown 0.3s ease-out forwards;
+    animation: fadeInDown 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @keyframes fadeInDown {
     from {
         opacity: 0;
-        transform: translateY(-10px);
+        transform: translateY(-8px);
     }
 
     to {
@@ -91,68 +158,45 @@
     }
 }
 
-.animate-shimmer {
-    animation: shimmer 2s infinite;
+/* Partner marquee: one track holding the list twice, shifted by half its width. */
+.marquee-track {
+    animation: marquee 40s linear infinite;
 }
 
-@keyframes shimmer {
-    0% {
-        background-position: -200% 0;
-    }
-
-    100% {
-        background-position: 200% 0;
-    }
-}
-
-.animate-pulse-slow {
-    animation: pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-
-@keyframes pulse-slow {
-
-    0%,
-    100% {
-        opacity: 1;
-    }
-
-    50% {
-        opacity: 0.7;
-    }
-}
-
-@layer utilities {
-    .animate-marquee {
-        animation: marquee 30s linear infinite;
-    }
-
-    .animate-marquee2 {
-        animation: marquee2 30s linear infinite;
-    }
-
-    /* Pause animation on hover */
-    .group:hover .animate-marquee,
-    .group:hover .animate-marquee2 {
-        animation-play-state: paused;
-    }
+.marquee:hover .marquee-track {
+    animation-play-state: paused;
 }
 
 @keyframes marquee {
-    0% {
-        transform: translateX(0%);
+    from {
+        transform: translateX(0);
     }
 
-    100% {
-        transform: translateX(-100%);
+    to {
+        transform: translateX(-50%);
     }
 }
 
-@keyframes marquee2 {
-    0% {
-        transform: translateX(100%);
+@media (prefers-reduced-motion: reduce) {
+    .marquee-track {
+        animation: none;
+    }
+}
+
+/* Hero headline: lines rise out of a mask on first paint. */
+.rise {
+    display: block;
+    animation: rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes rise {
+    from {
+        opacity: 0;
+        transform: translateY(40%);
     }
 
-    100% {
-        transform: translateX(0%);
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }

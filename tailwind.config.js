@@ -1,4 +1,9 @@
 /** @type {import('tailwindcss').Config} */
+
+// Colors are CSS variables (see src/index.css) so light/dark is a token swap,
+// not a second set of classes on every element.
+const token = (name) => `rgb(var(--${name}) / <alpha-value>)`;
+
 export default {
     content: [
         "./index.html",
@@ -8,35 +13,36 @@ export default {
     theme: {
         extend: {
             colors: {
-                primary: "#415dc2",
-                "primary-dark": "#2a4090",
-                "background-light": "#f8fafc", // slate-50
-                "background-dark": "#0f172a", // slate-900
-                "surface-dark": "#1e293b", // slate-800
-                "navy-900": "#0f172a", // Match background-dark or slightly darker
-                "text-dark": "#0F172A", // High contrast for light mode
-                "text-muted": "#475569", // Muted text for light mode (slate-600)
-                "border-light": "#E2E8F0", // Light mode border (slate-200)
+                canvas: token("canvas"),
+                surface: token("surface"),
+                ink: token("ink"),
+                "ink-soft": token("ink-soft"),
+                "ink-muted": token("ink-muted"),
+                ghost: token("ghost"),
+                line: token("line"),
+                accent: token("accent"),
+                "accent-ink": token("accent-ink"),
+                mint: token("mint"),
+                night: token("night"),
+                "on-night": token("on-night"),
+                brand: token("brand"),
             },
             fontFamily: {
-                display: "Space Grotesk, sans-serif",
-                body: ["Noto Sans", "sans-serif"]
+                display: ["Archivo", "system-ui", "sans-serif"],
+                sans: ['"Instrument Sans"', "system-ui", "sans-serif"],
             },
             borderRadius: {
-                DEFAULT: "0.25rem",
-                lg: "0.5rem",
-                xl: "0.75rem",
-                "2xl": "1rem",
-                full: "9999px"
+                // Radius rule: interactive = full pill, media cards = card/hero, plates inside cards = plate.
+                plate: "20px",
+                card: "32px",
+                hero: "48px",
             },
-            animation: {
-                'float': 'float 4s ease-in-out infinite',
-                'shimmer': 'shimmer 2s infinite',
-                'pulse-slow': 'pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            maxWidth: {
+                page: "1440px",
             },
-            transitionDuration: {
-                '400': '400ms',
-            }
+            transitionTimingFunction: {
+                out: "cubic-bezier(0.16, 1, 0.3, 1)",
+            },
         },
     },
     plugins: [],

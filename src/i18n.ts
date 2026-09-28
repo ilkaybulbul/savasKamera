@@ -17,4 +17,10 @@ i18n
         },
     });
 
+// Keep <html lang> in sync so Turkish casing (i/İ) and screen readers follow the active language.
+document.documentElement.lang = i18n.language;
+i18n.on('languageChanged', (lng) => {
+    document.documentElement.lang = lng;
+});
+
 export default i18n;
