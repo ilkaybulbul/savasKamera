@@ -16,7 +16,10 @@
         "ctaSecondary": "See Our References",
         "licensed": "Licensed Service",
         "warranty": "2 Year Warranty",
-        "fastInstall": "Fast Installation"
+        "fastInstall": "Fast Installation",
+        "slide": "Image {{n}}",
+        "pause": "Pause slideshow",
+        "play": "Play slideshow"
     },
     "card": {
         "resolution": "Resolution",

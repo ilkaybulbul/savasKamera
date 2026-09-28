@@ -93,6 +93,13 @@ export default function ContactForm() {
                         loading="lazy"
                         className="absolute inset-0 h-full w-full object-cover object-[85%_50%]"
                     />
+                    {/* The earlier Ankara street map, kept as a faint texture over the night photo. */}
+                    <img
+                        src={asset("/photos/legacy-map.webp")}
+                        alt=""
+                        loading="lazy"
+                        className="absolute inset-0 h-full w-full object-cover opacity-[0.12] mix-blend-screen grayscale"
+                    />
                     <div className="relative flex flex-col gap-5">
                         <span className="flex size-14 items-center justify-center rounded-full bg-accent text-accent-ink">
                             <span className="material-symbols-outlined text-[28px]">map</span>

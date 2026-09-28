@@ -200,3 +200,15 @@
         transform: translateY(0);
     }
 }
+
+/* Hero slider: cross-fade with a slow settle-in zoom on the active slide. */
+.hero-slide {
+    opacity: 0;
+    transform: scale(1.06);
+    transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 7s linear;
+}
+
+.hero-slide.is-active {
+    opacity: 1;
+    transform: scale(1);
+}

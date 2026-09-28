@@ -16,7 +16,10 @@
         "ctaSecondary": "Referanslarımızı Gör",
         "licensed": "Lisanslı Hizmet",
         "warranty": "2 Yıl Garanti",
-        "fastInstall": "Hızlı Kurulum"
+        "fastInstall": "Hızlı Kurulum",
+        "slide": "Görsel {{n}}",
+        "pause": "Slaytı durdur",
+        "play": "Slaytı oynat"
     },
     "card": {
         "resolution": "Çözünürlük",

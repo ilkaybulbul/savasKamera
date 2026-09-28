@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { asset } from '@/lib/utils';
 
 export default function Process() {
     const { t } = useTranslation();
@@ -7,9 +8,9 @@ export default function Process() {
     const stepRefs = useRef<(HTMLLIElement | null)[]>([]);
 
     const steps = [
-        { icon: 'person_search', title: t('process.step1.title'), desc: t('process.step1.desc') },
-        { icon: 'engineering', title: t('process.step2.title'), desc: t('process.step2.desc') },
-        { icon: 'support_agent', title: t('process.step3.title'), desc: t('process.step3.desc') },
+        { icon: 'person_search', title: t('process.step1.title'), desc: t('process.step1.desc'), img: asset('/photos/process-site-survey.webp'), pos: '40% 45%' },
+        { icon: 'engineering', title: t('process.step2.title'), desc: t('process.step2.desc'), img: asset('/photos/process-clean-install.webp'), pos: '50% 50%' },
+        { icon: 'support_agent', title: t('process.step3.title'), desc: t('process.step3.desc'), img: asset('/photos/process-intercom-use.webp'), pos: '50% 45%' },
     ];
 
     // A step lights up while it crosses the middle band of the viewport.
@@ -52,6 +53,16 @@ export default function Process() {
                             <p className={`max-w-[56ch] text-lg leading-7 transition-colors duration-500 ${isActive ? 'text-ink-soft' : 'text-ink-muted/60'}`}>
                                 {step.desc}
                             </p>
+                            {/* Inactive steps sit in black and white, like a camera on night mode; the active one is in colour. */}
+                            <figure className={`mt-4 w-full max-w-3xl overflow-hidden rounded-card transition-[transform,opacity,filter] duration-700 ease-out ${isActive ? 'scale-100 opacity-100 grayscale-0' : 'scale-[0.96] opacity-70 grayscale'}`}>
+                                <img
+                                    src={step.img}
+                                    alt={step.title}
+                                    loading="lazy"
+                                    style={{ objectPosition: step.pos }}
+                                    className="aspect-[4/3] w-full object-cover sm:aspect-[2/1]"
+                                />
+                            </figure>
                         </li>
                     );
                 })}
