@@ -1,6 +1,7 @@
 {
     "nav": {
         "services": "Hizmetler",
+        "intercom": "Diyafon",
         "process": "Süreç",
         "whyUs": "Neden Biz?",
         "reviews": "Yorumlar",
@@ -8,10 +9,10 @@
         "references": "Referanslar"
     },
     "hero": {
-        "badge": "Ankara'nın 1 Numaralı Güvenlik Çözümü",
+        "badge": "Kamera ve Görüntülü Diyafon Sistemleri",
         "titleStart": "Güvenliğiniz",
         "titleEnd": "Bizim İşimiz",
-        "description": "SK Güvenlik ile eviniz ve iş yeriniz 7/24 güvende. Yüksek çözünürlüklü görüntüleme sistemleri, akıllı görüntülü diyafonlar ve teknoloji entegrasyonuyla Başkent'te huzuru yeniden tanımlıyoruz.",
+        "description": "Eviniz, siteniz ve iş yeriniz 7/24 güvende. 4K güvenlik kameraları ve akıllı görüntülü diyafonlarla kapınıza kimin geldiğini görün, kapıyı telefonunuzdan açın, mülkünüzü her yerden izleyin.",
         "ctaPrimary": "Ücretsiz Keşif İste",
         "ctaSecondary": "Referanslarımızı Gör",
         "licensed": "Lisanslı Hizmet",
@@ -25,19 +26,21 @@
         "resolution": "Çözünürlük",
         "resolutionValue": "4K Ultra HD",
         "systemStatus": "Sistem Durumu",
-        "systemStatusValue": "Aktif & Kayıtta"
+        "systemStatusValue": "Aktif & Kayıtta",
+        "intercom": "Kapıda Misafir",
+        "intercomValue": "Kapı Açıldı"
     },
     "services": {
         "title": "Hizmetlerimiz",
         "heading": "Kapsamlı Güvenlik Çözümleri",
-        "description": "Kamera sistemlerinden görüntülü diyafonlara, mülkünüzün güvenliği için uçtan uca çözümler sunuyoruz.",
+        "description": "Güvenlik kameralarından görüntülü diyafonlara, kapınızdan bahçenize kadar mülkünüz için uçtan uca çözümler sunuyoruz.",
         "cctv": {
-            "title": "CCTV Kurulumu ve Ve Yapılandırması",
+            "title": "CCTV Kurulumu ve Yapılandırması",
             "desc": "Gece görüşlü 4K HD kameralar, yapay zeka destekli hareket algılama ve uzaktan izleme sistemlerinin profesyonel kurulumu. Kablo karmaşası olmadan, estetik montaj."
         },
         "intercom": {
             "title": "Görüntülü Diyafon Sistemleri",
-            "desc": "Villa, apartman ve siteler için görüntülü diyafon kurulumu. Kapıdaki misafiri HD görüntüyle görün, konuşun, kapıyı tek tuşla ya da telefonunuzdan açın. Kamera sisteminizle birlikte tek uygulamadan yönetin."
+            "desc": "Kapınızdaki misafiri HD görüntüyle görün, konuşun ve kapıyı tek dokunuşla ya da telefonunuzdan açın. Villa, apartman ve siteler için tek ve çok daireli sistemler."
         },
         "smart": {
             "title": "Akıllı Ev Entegrasyonu",
@@ -58,22 +61,23 @@
         }
     },
     "footer": {
-        "rights": "© 2024 SK Güvenlik. Tüm hakları saklıdır.",
+        "rights": "© {{year}} SK Güvenlik. Tüm hakları saklıdır.",
         "privacy": "Gizlilik Politikası",
         "terms": "Kullanım Şartları",
         "links": "Hızlı Bağlantılar",
         "areas": "Hizmet Bölgelerimiz",
         "contact": "İletişim",
-        "desc": "Ankara'nın güvenilir kamera ve güvenlik sistemleri çözüm ortağı. Evinizi ve işinizi korumak için en son teknolojiyi kullanıyoruz.",
+        "desc": "Ankara'nın güvenilir güvenlik kamerası ve görüntülü diyafon çözüm ortağı. Evinizi, sitenizi ve iş yerinizi en son teknolojiyle koruyoruz.",
         "call": "Hemen Arayın",
-        "email": "E-posta Destek"
+        "email": "E-posta Destek",
+        "intercom": "Görüntülü Diyafon"
     },
     "process": {
         "title": "Nasıl Çalışıyoruz?",
         "heading": "Adım Adım Güvenlik Sürecimiz",
         "step1": {
             "title": "Ücretsiz Keşif ve Risk Analizi",
-            "desc": "Uzmanlarımız yerinize gelerek kör noktaları belirler, çevresel riskleri analiz eder ve bütçenize en uygun projeyi çizer."
+            "desc": "Uzmanlarımız yerinize gelir, kamera kör noktalarını ve giriş noktalarını belirler, kamera ve diyafon altyapınızı inceler, bütçenize uygun projeyi çizer."
         },
         "step2": {
             "title": "Temiz ve Hızlı Kurulum",
@@ -98,13 +102,13 @@
         },
         "feat3": {
             "title": "Gelişmiş Mobil Deneyim",
-            "desc": "Dünyanın neresinde olursanız olun, kontrol avucunuzun içinde."
+            "desc": "Kameraları izleyin, kapı çağrılarını cevaplayın. Hepsi tek uygulamada, avucunuzun içinde."
         },
         "feat4": {
             "title": "2 Yıl Birebir Değişim",
             "desc": "Arızalı ürünlerde tamir beklemek yok, yenisiyle değişim."
         },
-        "img1": "Yeni Nesil Teknolojiler",
+        "img1": "Yeni Nesil Kamera ve Diyafon",
         "img2": "Kurumsal Referanslarımız"
     },
     "reviews": {
@@ -132,11 +136,40 @@
         "submit": "Talebi Gönder",
         "success": "Talep başarıyla alındı! (Simülasyon)",
         "mapTitle": "Tüm Ankara'da Hizmet",
-        "mapDesc": "Ekiplerimiz Ankara'nın her noktasında 7/24 hizmete hazır. Ücretsiz keşif için bizi arayın."
+        "mapDesc": "Ekiplerimiz Ankara'nın her noktasında 7/24 hizmete hazır. Ücretsiz keşif için bizi arayın.",
+        "service": "İlgilendiğiniz Hizmet",
+        "serviceOptions": {
+            "camera": "Güvenlik Kamerası",
+            "intercom": "Görüntülü Diyafon",
+            "both": "Kamera + Diyafon",
+            "maintenance": "Bakım / Arıza"
+        },
+        "propertyOptions": {
+            "apartment": "Konut / Daire",
+            "villa": "Villa / Müstakil",
+            "commercial": "Ticari İşletme",
+            "site": "Site / Apartman Yönetimi"
+        }
     },
     "references": {
         "heading": "Tamamlanan Projeler",
-        "desc": "Ankara genelinde yüzlerce başarıyla tamamlanmış proje."
+        "desc": "Ankara genelinde yüzlerce kamera ve diyafon projesi.",
+        "types": {
+            "commercial": "Ticari",
+            "residential": "Konut",
+            "detached": "Müstakil",
+            "industrial": "Sanayi"
+        },
+        "systems": {
+            "camera": "Kamera",
+            "intercomCamera": "Diyafon + Kamera"
+        },
+        "projects": {
+            "plaza": "Çankaya Plaza",
+            "site": "Batıkent Sitesi",
+            "villa": "Gölbaşı Villa",
+            "factory": "Ostim Fabrika"
+        }
     },
     "partners": {
         "title": "İş Ortaklarımız",
@@ -146,5 +179,59 @@
     "floating": {
         "whatsapp": "WhatsApp ile iletişime geç",
         "call": "Hemen ara"
+    },
+    "intercom": {
+        "chip": "Görüntülü Diyafon",
+        "heading": "Kapınızda Kim Var? Her Yerden Görün",
+        "desc": "HD görüntülü diyafon sistemleriyle misafirinizi görün, konuşun ve kapıyı tek dokunuşla açın. Evde olmasanız bile çağrı telefonunuza düşer.",
+        "products": {
+            "outdoor": {
+                "chip": "Dış Ünite",
+                "title": "Kapı Paneli",
+                "desc": "Paslanmaz gövde, geniş açılı HD kamera, gece görüşü. Villa için tek, apartman ve siteler için çok daireli modeller."
+            },
+            "indoor": {
+                "chip": "İç Ünite",
+                "title": "Dokunmatik Monitör",
+                "desc": "Misafirinizi net görün, kapıyı ekrandan açın, kaçırdığınız ziyaretçileri sonradan izleyin."
+            },
+            "app": {
+                "chip": "Mobil",
+                "title": "Telefondan Kapı Açma",
+                "desc": "İşte, yolda ya da tatildeyken kapı çağrısını cevaplayın, kuryeye kapıyı uzaktan açın."
+            }
+        },
+        "features": {
+            "hd": {
+                "title": "Full HD ve Gece Görüşü",
+                "desc": "Gündüz de gece de kapınız net görünür."
+            },
+            "phone": {
+                "title": "Telefondan Cevap",
+                "desc": "Görüntülü konuşun, kapıyı uzaktan açın."
+            },
+            "scale": {
+                "title": "Her Ölçeğe Uygun",
+                "desc": "Tek daireden yüzlerce daireli sitelere kadar."
+            },
+            "access": {
+                "title": "Kartlı ve Şifreli Giriş",
+                "desc": "Sakinler için anahtarsız, kontrollü giriş."
+            },
+            "history": {
+                "title": "Ziyaretçi Geçmişi",
+                "desc": "Kim geldi, ne zaman geldi, sonradan bakın."
+            },
+            "camera": {
+                "title": "Kamerayla Tek Sistem",
+                "desc": "Diyafon ve kameralar aynı uygulamada."
+            }
+        },
+        "cta": {
+            "chip": "Apartman & Site Yönetimleri",
+            "title": "Eski Diyafonunuzu Görüntülüye Çevirin",
+            "desc": "Binanızın mevcut altyapısını ücretsiz inceleyelim, size en uygun görüntülü diyafon çözümünü sunalım.",
+            "button": "Ücretsiz Diyafon Keşfi"
+        }
     }
 }

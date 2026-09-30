@@ -8,6 +8,9 @@ const scrollTo = (id: string) => document.getElementById(id)?.scrollIntoView({ b
 // pos = object-position: x matters on phones (height-filled), y on desktop (width-filled).
 const slides = [
     { src: asset('/photos/hero-family-entrance.webp'), pos: '60% 15%' },
+    // TODO: replace with /photos/hero-intercom-entrance.webp (landscape, panel on the right) when supplied.
+    // The fallback is a 747px portrait, so it is upscaled on desktop and the panel sits mid-frame.
+    { src: asset('/photos/legacy-intercom.webp'), pos: '50% 45%' },
     { src: asset('/photos/legacy-night-cam.webp'), pos: '70% 50%' },
     { src: asset('/photos/hero-warehouse-night.webp'), pos: '62% 30%' },
     { src: asset('/photos/hero-residential-night.webp'), pos: '72% 40%' },
@@ -106,16 +109,17 @@ export default function Hero() {
                         </div>
                     </div>
                     <div className="flex min-w-[240px] items-center gap-3 rounded-plate bg-canvas px-4 py-3 text-ink">
-                        <span className="relative flex size-10 items-center justify-center rounded-full bg-mint text-accent-ink">
-                            <span className="material-symbols-outlined text-[22px]">security</span>
+                        <span className="relative flex size-10 items-center justify-center rounded-full bg-surface">
+                            <span className="material-symbols-outlined text-[22px]">doorbell</span>
+                            {/* Positive notification: mint ping instead of an alarm red. */}
                             <span className="absolute right-0 top-0 flex size-3">
-                                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#E5484D] opacity-60" />
-                                <span className="relative inline-flex size-3 rounded-full border-2 border-canvas bg-[#E5484D]" />
+                                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-mint opacity-80" />
+                                <span className="relative inline-flex size-3 rounded-full border-2 border-canvas bg-mint ring-1 ring-ink/20" />
                             </span>
                         </span>
                         <div>
-                            <p className="text-sm text-ink-muted">{t('card.systemStatus')}</p>
-                            <p className="font-semibold">{t('card.systemStatusValue')}</p>
+                            <p className="text-sm text-ink-muted">{t('card.intercom')}</p>
+                            <p className="font-semibold">{t('card.intercomValue')}</p>
                         </div>
                     </div>
                 </div>

@@ -1,6 +1,7 @@
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Services from './components/Services';
+import Intercom from './components/Intercom';
 import Process from './components/Process';
 import WhyUs from './components/WhyUs';
 import Reviews from './components/Reviews';
@@ -21,6 +22,7 @@ export default function App() {
                 <main>
                     <Hero />
                     <Services />
+                    <Intercom />
                     <WhyUs />
                     <Partners />
                     <References />

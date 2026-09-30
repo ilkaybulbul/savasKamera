@@ -6,6 +6,7 @@ import Logo from './Logo';
 
 const links = [
     { href: '#services', key: 'nav.services' },
+    { href: '#intercom', key: 'nav.intercom' },
     { href: '#process', key: 'nav.process' },
     { href: '#why-us', key: 'nav.whyUs' },
     { href: '#reviews', key: 'nav.reviews' },
@@ -28,7 +29,7 @@ export default function Navbar() {
 
     return (
         <nav className="sticky top-0 z-50 border-b border-line bg-canvas/95 backdrop-blur-md">
-            <div className="mx-auto flex h-[72px] max-w-page items-center gap-2 px-4 sm:gap-3 lg:gap-8 lg:px-10">
+            <div className="mx-auto flex h-[72px] max-w-page items-center gap-2 px-4 sm:gap-3 lg:gap-5 lg:px-10 xl:gap-8">
                 <button
                     onClick={() => setIsOpen(!isOpen)}
                     className="flex h-10 w-12 shrink-0 items-center justify-center rounded-full bg-accent text-accent-ink sm:w-14 lg:hidden"
@@ -43,7 +44,7 @@ export default function Navbar() {
                     <Logo />
                 </a>
 
-                <div className="hidden items-center gap-6 lg:flex">
+                <div className="hidden items-center gap-4 lg:flex xl:gap-6">
                     {links.map(link => (
                         <a key={link.href} href={link.href} className="whitespace-nowrap py-2 text-[15px] font-medium text-ink transition-colors hover:text-ink-muted">
                             {t(link.key)}

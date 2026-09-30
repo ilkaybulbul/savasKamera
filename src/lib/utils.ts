@@ -9,3 +9,12 @@ export function cn(...inputs: ClassValue[]) {
 export function asset(file: string) {
     return import.meta.env.BASE_URL + file.replace(/^\//, '')
 }
+
+/** Event ContactForm listens for to preselect the "service" field. */
+export const SELECT_SERVICE_EVENT = 'sk:select-service'
+
+/** Scrolls to the contact form and preselects a service there (e.g. 'intercom'). */
+export function requestService(service: string) {
+    window.dispatchEvent(new CustomEvent(SELECT_SERVICE_EVENT, { detail: service }))
+    document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })
+}

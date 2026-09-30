@@ -5,24 +5,24 @@ export default function References() {
     const { t } = useTranslation();
 
     const references = [
-        { title: "Çankaya Plaza", img: asset("/photos/ref-plaza-atrium.webp"), type: "Ticari", pos: "50% 50%" },
-        { title: "Batıkent Sitesi", img: asset("/photos/ref-residential-site.webp"), type: "Konut", pos: "36% 50%" },
-        { title: "Gölbaşı Villa", img: asset("/photos/ref-villa-dusk.webp"), type: "Müstakil", pos: "40% 50%" },
-        { title: "Ostim Fabrika", img: asset("/photos/ref-factory-dusk.webp"), type: "Sanayi", pos: "62% 50%" },
+        { key: "plaza", img: asset("/photos/ref-plaza-atrium.webp"), type: "commercial", systems: "camera", pos: "50% 50%" },
+        { key: "site", img: asset("/photos/ref-residential-site.webp"), type: "residential", systems: "intercomCamera", pos: "36% 50%" },
+        { key: "villa", img: asset("/photos/ref-villa-dusk.webp"), type: "detached", systems: "intercomCamera", pos: "40% 50%" },
+        { key: "factory", img: asset("/photos/ref-factory-dusk.webp"), type: "industrial", systems: "camera", pos: "62% 50%" },
     ];
 
     // Photo wall under the project cards: new and earlier photos mixed. Spans are chosen so the
     // dense grid fills 4x4 cells on desktop and 2x8 on phones with no gaps; portraits get the tall cells.
     const gallery = [
-        { img: asset("/photos/gallery-doorbell-dusk.webp"), span: "col-span-2", pos: "40% 40%", alt: "Dükkan girişinde görüntülü kapı zili", type: "Ticari" },
-        { img: asset("/photos/legacy-villa-cam.webp"), span: "row-span-2", pos: "60% 50%", alt: "Villa girişinde güvenlik kamerası", type: "Müstakil" },
+        { img: asset("/photos/gallery-doorbell-dusk.webp"), span: "col-span-2", pos: "40% 40%", alt: "Dükkan girişinde görüntülü kapı zili", type: "commercial" },
+        { img: asset("/photos/legacy-villa-cam.webp"), span: "row-span-2", pos: "60% 50%", alt: "Villa girişinde güvenlik kamerası", type: "detached" },
         { img: asset("/photos/legacy-white-camera.webp"), span: "", pos: "70% 50%", alt: "Duvara monte beyaz güvenlik kamerası" },
-        { img: asset("/photos/gallery-garden-infrared.webp"), span: "col-span-2 row-span-2", pos: "50% 50%", alt: "Bahçede gece görüşlü kamera", type: "Konut" },
+        { img: asset("/photos/gallery-garden-infrared.webp"), span: "col-span-2 row-span-2", pos: "50% 50%", alt: "Bahçede gece görüşlü kamera", type: "residential" },
         { img: asset("/photos/gallery-lens-macro.webp"), span: "", pos: "45% 50%", alt: "Güvenlik kamerası lensi" },
-        { img: asset("/photos/legacy-intercom.webp"), span: "row-span-2", pos: "50% 50%", alt: "Taş duvarda görüntülü diyafon", type: "Konut" },
+        { img: asset("/photos/legacy-intercom.webp"), span: "row-span-2", pos: "50% 50%", alt: "Taş duvarda görüntülü diyafon", type: "residential" },
         { img: asset("/photos/gallery-dome-camera.webp"), span: "", pos: "50% 50%", alt: "Dome güvenlik kamerası" },
-        { img: asset("/photos/legacy-plaza.webp"), span: "", pos: "50% 50%", alt: "Plaza girişinde güvenlik kamerası", type: "Ticari" },
-        { img: asset("/photos/legacy-door-entry.webp"), span: "", pos: "50% 55%", alt: "Bina kapısında kamera ve diyafon", type: "Konut" },
+        { img: asset("/photos/legacy-plaza.webp"), span: "", pos: "50% 50%", alt: "Plaza girişinde güvenlik kamerası", type: "commercial" },
+        { img: asset("/photos/legacy-door-entry.webp"), span: "", pos: "50% 55%", alt: "Bina kapısında kamera ve diyafon", type: "residential" },
         { img: asset("/photos/gallery-white-camera.webp"), span: "", pos: "45% 50%", alt: "Beyaz duvarda bullet kamera" },
     ];
 
@@ -36,17 +36,18 @@ export default function References() {
             {/* Swipe row on phones, 4-up grid from lg */}
             <ul className="mx-auto mt-10 flex max-w-page snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 [scrollbar-width:none] lg:grid lg:grid-cols-4 lg:overflow-visible lg:px-10 [&::-webkit-scrollbar]:hidden">
                 {references.map(ref => (
-                    <li key={ref.title} className="group relative aspect-[3/4] w-[78%] shrink-0 snap-start overflow-hidden rounded-card bg-surface sm:w-[46%] lg:w-auto">
+                    <li key={ref.key} className="group relative aspect-[3/4] w-[78%] shrink-0 snap-start overflow-hidden rounded-card bg-surface sm:w-[46%] lg:w-auto">
                         <img
                             src={ref.img}
-                            alt={ref.title}
+                            alt={t(`references.projects.${ref.key}`)}
                             loading="lazy"
                             style={{ objectPosition: ref.pos }}
                             className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                         />
-                        <span className="chip absolute left-4 top-4 bg-mint text-xs font-semibold text-accent-ink">{ref.type}</span>
+                        <span className="chip absolute left-4 top-4 bg-mint text-xs font-semibold text-accent-ink">{t(`references.types.${ref.type}`)}</span>
                         <div className="absolute inset-x-3 bottom-3 rounded-plate bg-canvas px-5 py-4">
-                            <h3 className="t-display text-[28px] text-ink">{ref.title}</h3>
+                            <h3 className="t-display text-[28px] text-ink">{t(`references.projects.${ref.key}`)}</h3>
+                            <p className="mt-1 text-sm text-ink-muted">{t(`references.systems.${ref.systems}`)}</p>
                         </div>
                     </li>
                 ))}
@@ -64,7 +65,7 @@ export default function References() {
                             className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                         />
                         {photo.type && (
-                            <span className="chip absolute left-3 top-3 bg-mint px-3 py-1 text-xs font-semibold text-accent-ink">{photo.type}</span>
+                            <span className="chip absolute left-3 top-3 bg-mint px-3 py-1 text-xs font-semibold text-accent-ink">{t(`references.types.${photo.type}`)}</span>
                         )}
                     </li>
                 ))}

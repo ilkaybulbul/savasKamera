@@ -20,6 +20,7 @@ export default function Footer() {
                         <ul className="flex flex-col gap-1 text-[15px] text-on-night/70">
                             <li><a className="inline-block py-2 transition-colors hover:text-on-night" href="#">{t('nav.freeDiscovery')}</a></li>
                             <li><a className="inline-block py-2 transition-colors hover:text-on-night" href="#services">{t('nav.services')}</a></li>
+                            <li><a className="inline-block py-2 transition-colors hover:text-on-night" href="#intercom">{t('footer.intercom')}</a></li>
                             <li><a className="inline-block py-2 transition-colors hover:text-on-night" href="#process">{t('nav.process')}</a></li>
                             <li><a className="inline-block py-2 transition-colors hover:text-on-night" href="#reviews">{t('nav.reviews')}</a></li>
                         </ul>
@@ -68,7 +69,7 @@ export default function Footer() {
                 </svg>
 
                 <div className="mt-8 flex flex-col items-start justify-between gap-4 border-t border-on-night/15 pt-8 text-sm text-on-night/60 md:flex-row md:items-center">
-                    <div>{t('footer.rights')}</div>
+                    <div>{t('footer.rights', { year: new Date().getFullYear() })}</div>
                     <div className="flex gap-6">
                         <a className="inline-block py-2.5 transition-colors hover:text-on-night" href="#">{t('footer.privacy')}</a>
                         <a className="inline-block py-2.5 transition-colors hover:text-on-night" href="#">{t('footer.terms')}</a>

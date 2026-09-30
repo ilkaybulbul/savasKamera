@@ -6,7 +6,8 @@ import { asset } from '@/lib/utils';
 const items = [
     // pos = object-position, keeps the camera / subject inside the portrait crop
     { key: 'cctv', img: asset("/photos/cctv-wall-camera.webp"), pos: '62% 50%' },
-    { key: 'intercom', img: asset("/photos/process-intercom-use.webp"), pos: '45% 50%' },
+    // TODO: replace with /photos/service-intercom.webp when supplied.
+    { key: 'intercom', img: asset('/photos/why-intercom-touch.webp'), pos: '50% 50%' },
     { key: 'smart', img: asset("/photos/smart-home-phone.webp"), pos: '45% 50%' },
     { key: 'maintenance', img: asset("/photos/maintenance-kit.webp"), pos: '42% 50%' },
     { key: 'monitoring', img: asset("/photos/monitoring-lens.webp"), pos: '53% 50%' },
@@ -43,7 +44,7 @@ export default function Services() {
             </header>
 
             {/* Desktop: pinned media + headline list */}
-            <div ref={trackRef} className="relative mt-8 hidden lg:block" style={{ height: `${items.length * 70 + 30}vh` }}>
+            <div ref={trackRef} className="relative mt-8 hidden lg:block" style={{ height: `${items.length * 60 + 30}vh` }}>
                 <div className="sticky flex items-center" style={{ top: NAV_HEIGHT, height: `calc(100dvh - ${NAV_HEIGHT}px)` }}>
                     <div className="mx-auto grid w-full max-w-[1200px] grid-cols-[minmax(0,5fr)_minmax(0,6fr)] items-center gap-16 px-10">
                         <div className="relative aspect-[4/5] max-h-[calc(100dvh-160px)] w-full overflow-hidden rounded-card bg-surface">

@@ -1,18 +1,33 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { asset } from '@/lib/utils';
+import { asset, SELECT_SERVICE_EVENT } from '@/lib/utils';
 
 const inputClass = "h-14 w-full rounded-2xl border border-line bg-canvas px-5 text-base text-ink outline-none transition-[border-color,box-shadow] placeholder:text-ink-muted/70 focus:border-ink focus:ring-4 focus:ring-ink/10";
 const labelClass = "mb-2 block text-sm font-medium text-ink";
 
+// Option values are stable keys; labels come from contact.propertyOptions / contact.serviceOptions.
+const propertyOptions = ['apartment', 'villa', 'commercial', 'site'];
+const serviceOptions = ['camera', 'intercom', 'both', 'maintenance'];
+const emptyForm = { firstName: '', lastName: '', phone: '', propertyType: 'apartment', service: 'camera' };
+
 export default function ContactForm() {
     const { t } = useTranslation();
-    const [formData, setFormData] = useState({ firstName: '', lastName: '', phone: '', propertyType: 'Konut / Daire' });
+    const [formData, setFormData] = useState(emptyForm);
+
+    // Other sections (e.g. the intercom CTA) can preselect the service via requestService().
+    useEffect(() => {
+        const onSelect = (e: Event) => {
+            const service = (e as CustomEvent<string>).detail;
+            if (serviceOptions.includes(service)) setFormData(prev => ({ ...prev, service }));
+        };
+        window.addEventListener(SELECT_SERVICE_EVENT, onSelect);
+        return () => window.removeEventListener(SELECT_SERVICE_EVENT, onSelect);
+    }, []);
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         alert(t('contact.success'));
-        setFormData({ firstName: '', lastName: '', phone: '', propertyType: 'Konut / Daire' });
+        setFormData(emptyForm);
     };
 
     return (
@@ -72,10 +87,25 @@ export default function ContactForm() {
                                     onChange={(e) => setFormData({ ...formData, propertyType: e.target.value })}
                                     className={`${inputClass} cursor-pointer appearance-none pr-12`}
                                 >
-                                    <option>Konut / Daire</option>
-                                    <option>Villa / Müstakil</option>
-                                    <option>Ticari İşletme</option>
-                                    <option>Site / Apartman Yönetimi</option>
+                                    {propertyOptions.map(option => (
+                                        <option key={option} value={option}>{t(`contact.propertyOptions.${option}`)}</option>
+                                    ))}
+                                </select>
+                                <span className="material-symbols-outlined pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-ink-muted">expand_more</span>
+                            </div>
+                        </div>
+                        <div>
+                            <label htmlFor="cf-service" className={labelClass}>{t('contact.service')}</label>
+                            <div className="relative">
+                                <select
+                                    id="cf-service"
+                                    value={formData.service}
+                                    onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+                                    className={`${inputClass} cursor-pointer appearance-none pr-12`}
+                                >
+                                    {serviceOptions.map(option => (
+                                        <option key={option} value={option}>{t(`contact.serviceOptions.${option}`)}</option>
+                                    ))}
                                 </select>
                                 <span className="material-symbols-outlined pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-ink-muted">expand_more</span>
                             </div>
